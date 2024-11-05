@@ -1,0 +1,28 @@
+{
+  "name": "test-task",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "clear-allure-results": "rmdir /S /Q allure-results || echo 'Folder not found, skipping deletion'",
+    "test": "npm run clear-allure-results && npx playwright test",
+    "run-e2e": "npm run test -- /e2e",
+    "run-api": "npm run test -- /api",
+    "generate-report": "allure generate ./allure-results -o ./allure-report --clean",
+    "open-report": "allure open ./allure-report",
+    "generate-and-open": "npm run generate-report && npm run open-report"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "allure-playwright": "^3.0.6",
+    "dotenv": "^16.4.5",
+    "playwright": "^1.48.2",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.2",
+    "@types/node": "^22.8.2"
+  }
+}
